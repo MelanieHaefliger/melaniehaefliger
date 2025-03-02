@@ -1,7 +1,7 @@
 {
   "name": "melaniehaefliger",
   "version": "0.1.0",
-  "homepage": "https://<your-username>.github.io/melaniehaefliger",
+  "homepage": "https://melaniehaefliger.github.io/melaniehaefliger",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
