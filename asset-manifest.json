@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/melaniehaefliger/static/css/main.9da82b30.css",
-    "main.js": "/melaniehaefliger/static/js/main.7e478ac4.js",
+    "main.css": "/melaniehaefliger/static/css/main.31eb8284.css",
+    "main.js": "/melaniehaefliger/static/js/main.508d4beb.js",
     "static/js/453.3eaa4864.chunk.js": "/melaniehaefliger/static/js/453.3eaa4864.chunk.js",
     "static/media/profile.png": "/melaniehaefliger/static/media/profile.f51c235631c661029951.png",
     "index.html": "/melaniehaefliger/index.html",
-    "main.9da82b30.css.map": "/melaniehaefliger/static/css/main.9da82b30.css.map",
-    "main.7e478ac4.js.map": "/melaniehaefliger/static/js/main.7e478ac4.js.map",
+    "main.31eb8284.css.map": "/melaniehaefliger/static/css/main.31eb8284.css.map",
+    "main.508d4beb.js.map": "/melaniehaefliger/static/js/main.508d4beb.js.map",
     "453.3eaa4864.chunk.js.map": "/melaniehaefliger/static/js/453.3eaa4864.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9da82b30.css",
-    "static/js/main.7e478ac4.js"
+    "static/css/main.31eb8284.css",
+    "static/js/main.508d4beb.js"
   ]
 }
