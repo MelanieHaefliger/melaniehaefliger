@@ -17,11 +17,18 @@ function App() {
   const handleImageClick = () => {
     const emojis = ["❤️", "💰"];
     const newHearts = [];
+  
+    // Check if the viewport is under 768px
+    const isMobile = window.innerWidth < 768;
+  
     for (let i = 0; i < 20; i++) {
       const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-      const left = Math.random() * 100;  // 0–100% of viewport width
-      const duration = 10 + Math.random() * 2; // 10–12 seconds
-      const size = 80 + Math.random() * 80;    // 80–160px
+      const left = Math.random() * 100;
+      const duration = 10 + Math.random() * 2; // 10–12s
+      const baseSize = 60 + Math.random() * 80; // 80–160px
+      // If mobile, scale the size to 70%
+      const size = isMobile ? baseSize * 0.7 : baseSize;
+  
       newHearts.push({
         id: Math.random(),
         symbol: randomEmoji,
@@ -30,12 +37,13 @@ function App() {
         size
       });
     }
+  
     setHearts(newHearts);
-    // Clear confetti after 5s
     setTimeout(() => {
       setHearts([]);
     }, 5000);
   };
+  
 
   // Sticky header scroll listener
   useEffect(() => {

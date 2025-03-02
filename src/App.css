@@ -214,6 +214,14 @@ p {
   margin-bottom: 1rem;
   cursor: pointer;
   animation: pulse 2s infinite;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optionally also remove focus outlines if desired */
+.profile-image:focus,
+.profile-image:active {
+  outline: none;
+  border: none;
 }
 
 @keyframes pulse {
@@ -349,7 +357,7 @@ p {
 
 .skills-list li,
 .tools-list li {
-  background-color: #edf2f4;
+  background-color: #F8F7F5;
   padding: 0.4rem 0.7rem;
   border-radius: 0.3rem;
   font-size: 1.5rem;
@@ -362,7 +370,7 @@ p {
 }
 
 .project-card {
-  background-color: #edf2f4;
+  background-color: #F8F7F5;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
