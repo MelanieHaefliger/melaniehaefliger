@@ -4,34 +4,43 @@ import profileImage from "./profile.png";
 import linkedinIcon from "./linkedin-icon.png";
 
 function App() {
-  // Heart confetti state
+  // Confetti state
   const [hearts, setHearts] = useState([]);
 
+  // Toggle for sticky header
+  const [scrolled, setScrolled] = useState(false);
+
+  // Toggle for mobile menu
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Generate hearts & money confetti
   const handleImageClick = () => {
+    const emojis = ["❤️", "💰"];
     const newHearts = [];
     for (let i = 0; i < 20; i++) {
-      const left = Math.random() * 100;
-      const duration = 2 + Math.random() * 2;
-      const size = 20 + Math.random() * 30;
-      newHearts.push({ left, duration, size, id: Math.random() });
+      const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+      const left = Math.random() * 100;  // 0–100% of viewport width
+      const duration = 10 + Math.random() * 2; // 10–12 seconds
+      const size = 80 + Math.random() * 80;    // 80–160px
+      newHearts.push({
+        id: Math.random(),
+        symbol: randomEmoji,
+        left,
+        duration,
+        size
+      });
     }
     setHearts(newHearts);
-    // Clear hearts after 5 seconds
+    // Clear confetti after 5s
     setTimeout(() => {
       setHearts([]);
     }, 5000);
   };
 
-  // Sticky menu scroll listener
-  const [scrolled, setScrolled] = useState(false);
-
+  // Sticky header scroll listener
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -39,20 +48,21 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Hearts Overlay */}
+      {/* Hearts & Money Confetti Overlay */}
       <div className="hearts-container">
-        {hearts.map((heart) => (
+        {hearts.map((item) => (
           <span
-            key={heart.id}
+            key={item.id}
             className="heart"
             style={{
-              left: `${heart.left}%`,
-              animationDuration: `${heart.duration}s`,
-              width: `${heart.size}px`,
-              height: `${heart.size}px`,
+              left: `${item.left}%`,
+              animationDuration: `${item.duration}s`,
+              width: `${item.size}px`,
+              height: `${item.size}px`,
+              fontSize: `${item.size}px` // scale the text emoji
             }}
           >
-            ❤️
+            {item.symbol}
           </span>
         ))}
       </div>
@@ -60,24 +70,50 @@ function App() {
       {/* Top Menu */}
       <header className={scrolled ? "top-menu scrolled" : "top-menu"}>
         <nav>
-          <ul>
+          {/* Hamburger button for mobile */}
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
+          </button>
+
+          {/* Nav links, toggled by menuOpen */}
+          <ul className={menuOpen ? "nav-links open" : "nav-links"}>
             <li>
-              <a href="#experience">Experience</a>
+              <a href="#experience" onClick={() => setMenuOpen(false)}>
+                Experience
+              </a>
             </li>
             <li>
-              <a href="#education">Education</a>
+              <a href="#education" onClick={() => setMenuOpen(false)}>
+                Education
+              </a>
             </li>
             <li>
-              <a href="#skills">Skills</a>
+              <a href="#skills" onClick={() => setMenuOpen(false)}>
+                Skills
+              </a>
             </li>
             <li>
-              <a href="#tools">Tools</a>
+              <a href="#tools" onClick={() => setMenuOpen(false)}>
+                Tools
+              </a>
             </li>
             <li>
-              <a href="#projects">Projects</a>
+              <a href="#projects" onClick={() => setMenuOpen(false)}>
+                Projects
+              </a>
             </li>
             <li>
-              <a href="/cv.pdf" target="_blank" rel="noreferrer">
+              <a
+                href="/cv.pdf"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMenuOpen(false)}
+              >
                 CV
               </a>
             </li>

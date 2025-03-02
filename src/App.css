@@ -33,7 +33,7 @@ p {
 }
 
 /* -------------------------------------------------- */
-/* Hearts Container & Animation                       */
+/* Hearts & Money Confetti                            */
 /* -------------------------------------------------- */
 .hearts-container {
   position: fixed;
@@ -47,10 +47,9 @@ p {
 }
 
 .heart {
-  position: absolute;
-  bottom: 0;
+  position: fixed; /* so it tracks the viewport, not the page */
   font-size: 2rem;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(100vh); /* start below screen */
   animation-name: floatUp;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
@@ -58,11 +57,11 @@ p {
 
 @keyframes floatUp {
   0% {
-    transform: translateX(-50%) translateY(0) scale(1);
+    transform: translateX(-50%) translateY(100vh) scale(1);
     opacity: 1;
   }
   100% {
-    transform: translateX(-50%) translateY(-200%) scale(2);
+    transform: translateX(-50%) translateY(-100vh) scale(2);
     opacity: 0;
   }
 }
@@ -73,11 +72,10 @@ p {
 .app-container {
   width: 100%;
   margin: 0 auto;
-  /* No side padding here, we'll do it in .content-wrapper */
 }
 
 /* -------------------------------------------------- */
-/* Sticky Top Menu with Scroll Listener               */
+/* Sticky Top Menu + Hamburger                        */
 /* -------------------------------------------------- */
 .top-menu {
   position: sticky;
@@ -97,13 +95,62 @@ p {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.top-menu nav ul {
+.top-menu nav {
+  position: relative;
+}
+
+/* Desktop nav links */
+.nav-links {
   list-style: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Mobile hamburger button */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 0.3rem;
+  position: absolute;
+  top: 0.5rem; /* adjust vertically as needed */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #233830;
+}
+
+/* Mobile nav hidden by default */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 4rem; 
+      left: 50%;  /* center horizontally */
+      transform: translateX(-50%); /* center horizontally */
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+  
+    /* Show nav when .open is applied */
+    .nav-links.open {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: flex; /* show hamburger on mobile */
+    }
+  }
 
 .top-menu nav ul li a {
   padding: 0.5rem 3rem;
@@ -114,7 +161,7 @@ p {
 }
 
 .top-menu nav ul li a:hover {
-  background-color: #EFBC79;
+  background-color: #efbc79;
 }
 
 .top-menu nav ul li a.active {
@@ -125,12 +172,11 @@ p {
 /* Content Wrapper & Two-Column Rows                  */
 /* -------------------------------------------------- */
 .content-wrapper {
-  max-width: 2000px; /* Increase if you want even wider content */
+  max-width: 2000px; /* or narrower, e.g. 1400px */
   margin: 0 auto;
-  padding: 0 2cm; /* 2cm side padding for the entire page content */
+  padding: 0 2cm; /* side padding */
 }
 
-/* Two-column rows for Experience/Education & Skills/Tools */
 .two-column-row {
   display: flex;
   justify-content: space-between;
@@ -140,12 +186,23 @@ p {
   margin-bottom: 2rem;
 }
 
+/* Switch to single-column on mobile */
+@media (max-width: 768px) {
+  .two-column-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .content-wrapper {
+    padding: 0 1rem;
+  }
+}
+
 /* -------------------------------------------------- */
 /* Hero Section                                       */
 /* -------------------------------------------------- */
 .hero {
   text-align: center;
-  padding: 2rem 0; /* Inherits side padding from .content-wrapper */
+  padding: 2rem 0;
 }
 
 /* Profile Image & Pulse Animation */
@@ -361,17 +418,4 @@ p {
   height: 40px;
   vertical-align: middle;
   margin-right: 0.5rem;
-}
-
-/* -------------------------------------------------- */
-/* Responsive Adjustments                             */
-/* -------------------------------------------------- */
-@media (max-width: 768px) {
-  .two-column-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .content-wrapper {
-    padding: 0 1rem;
-  }
 }
