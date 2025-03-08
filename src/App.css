@@ -169,9 +169,9 @@ p {
 /* Content Wrapper & Two-Column Rows                  */
 /* -------------------------------------------------- */
 .content-wrapper {
-  max-width: 2000px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 0 2cm;
+  padding: 0 2rem;
 }
 
 .two-column-row {
@@ -181,16 +181,6 @@ p {
   gap: 3rem;
   width: 100%;
   margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
-  .two-column-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .content-wrapper {
-    padding: 0 1rem;
-  }
 }
 
 /* -------------------------------------------------- */
