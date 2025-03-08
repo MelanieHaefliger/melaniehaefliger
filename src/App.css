@@ -463,4 +463,11 @@ p {
   .project-image {
     /* optional smaller images on mobile, if you want */
   }
+  .projects-grid {
+    grid-template-columns: 1fr !important; /* Single column */
+    gap: 1rem; /* Optionally reduce gap */
+  }
+  .project-card {
+    padding: 1rem !important; /* Reduce padding on mobile if needed */
+  }
 }
