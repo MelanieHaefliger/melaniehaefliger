@@ -3,32 +3,35 @@ import "./App.css";
 import profileImage from "./profile.png";
 import linkedinIcon from "./linkedin-icon.png";
 
+/* Import your project screenshots */
+import previewProject1 from "./preview-project1.png";
+import previewProject2 from "./preview-project2.png";
+import previewProject3 from "./preview-project3.png";
+import previewProject4 from "./preview-project4.png";
+
 function App() {
-  // Confetti state
+  // Hearts & confetti
   const [hearts, setHearts] = useState([]);
 
-  // Toggle for sticky header
+  // Sticky header scroll state
   const [scrolled, setScrolled] = useState(false);
 
-  // Toggle for mobile menu
+  // Mobile menu toggle
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Generate hearts & money confetti
   const handleImageClick = () => {
     const emojis = ["❤️", "💰"];
     const newHearts = [];
-  
-    // Check if the viewport is under 768px
     const isMobile = window.innerWidth < 768;
-  
+
     for (let i = 0; i < 20; i++) {
       const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
       const left = Math.random() * 100;
       const duration = 10 + Math.random() * 2; // 10–12s
-      const baseSize = 60 + Math.random() * 80; // 80–160px
-      // If mobile, scale the size to 70%
+      const baseSize = 60 + Math.random() * 80; // 60–140px
       const size = isMobile ? baseSize * 0.7 : baseSize;
-  
+
       newHearts.push({
         id: Math.random(),
         symbol: randomEmoji,
@@ -37,15 +40,12 @@ function App() {
         size
       });
     }
-  
-    setHearts(newHearts);
-    setTimeout(() => {
-      setHearts([]);
-    }, 5000);
-  };
-  
 
-  // Sticky header scroll listener
+    setHearts(newHearts);
+    setTimeout(() => setHearts([]), 5000);
+  };
+
+  // Sticky header on scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Hearts & Money Confetti Overlay */}
+      {/* Hearts & Confetti Overlay */}
       <div className="hearts-container">
         {hearts.map((item) => (
           <span
@@ -67,7 +67,7 @@ function App() {
               animationDuration: `${item.duration}s`,
               width: `${item.size}px`,
               height: `${item.size}px`,
-              fontSize: `${item.size}px` // scale the text emoji
+              fontSize: `${item.size}px`
             }}
           >
             {item.symbol}
@@ -78,17 +78,14 @@ function App() {
       {/* Top Menu */}
       <header className={scrolled ? "top-menu scrolled" : "top-menu"}>
         <nav>
-          {/* Hamburger button for mobile */}
-          <button
-            className="hamburger"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
+          {/* Hamburger (mobile) */}
+          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="bar" />
             <span className="bar" />
             <span className="bar" />
           </button>
 
-          {/* Nav links, toggled by menuOpen */}
+          {/* Nav links */}
           <ul className={menuOpen ? "nav-links open" : "nav-links"}>
             <li>
               <a href="#experience" onClick={() => setMenuOpen(false)}>
@@ -117,7 +114,7 @@ function App() {
             </li>
             <li>
               <a
-                href="/cv.pdf"
+                href="https://drive.google.com/file/d/1B6grUw7Py4T5vho8zRf5JnxypoQKy1EV/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMenuOpen(false)}
@@ -129,7 +126,7 @@ function App() {
         </nav>
       </header>
 
-      {/* Main Content Wrapper (Hero + 2-column rows + Projects) */}
+      {/* Main Content */}
       <div className="content-wrapper">
         {/* Hero Section */}
         <section className="hero">
@@ -143,9 +140,11 @@ function App() {
             <div className="image-hint">Click to pet</div>
           </div>
           <h1 className="profile-name">Hi. I'm Mel.</h1>
-          <h2 className="profile-title">
-            Great products win hearts and fill wallets, let’s make that magic happen!
-          </h2>
+          <div className="profile-title-container">
+            <h2 className="profile-title">
+              Great products win hearts and fill wallets, let’s make that magic happen!
+            </h2>
+          </div>
         </section>
 
         {/* Row 1: Experience & Education */}
@@ -153,37 +152,49 @@ function App() {
           <section id="experience" className="section-container experience">
             <h2>Experience</h2>
             <div className="jobs-container">
-              <div className="job-card">
-                <h3>Associate PM - Benevity</h3>
-                <span>Oct 2022 - Present</span>
-                <p>
-                  Delivering features for internal teams and users that optimize
-                  workflows and drive user engagement.
-                </p>
+              <div className="experience-card">
+                <div className="experience-info">
+                  <h3>Associate PM</h3>
+                  <p className="company">Benevity</p>
+                  <p>
+                    Delivering features for internal teams and users that optimize
+                    workflows and drive user engagement.
+                  </p>
+                </div>
+                <div className="experience-dates">Oct 2022 - Present</div>
               </div>
-              <div className="job-card">
-                <h3>Customer Success Manager - Benevity</h3>
-                <span>Oct 2021 - Oct 2022</span>
-                <p>
-                  Built strong client relationships to drive product adoption,
-                  ensuring retention and exceptional customer experiences.
-                </p>
+              <div className="experience-card">
+                <div className="experience-info">
+                  <h3>Customer Success Manager</h3>
+                  <p className="company">Benevity</p>
+                  <p>
+                    Built strong client relationships to drive product adoption,
+                    ensuring retention and exceptional customer experiences.
+                  </p>
+                </div>
+                <div className="experience-dates">Oct 2021 - Oct 2022</div>
               </div>
-              <div className="job-card">
-                <h3>Implementation Manager - Travelperk</h3>
-                <span>Jan 2021 - Oct 2021</span>
-                <p>
-                  Accelerated revenue growth by implementing and launching multiple
-                  global clients with SSO and API Integrations.
-                </p>
+              <div className="experience-card">
+                <div className="experience-info">
+                  <h3>Implementation Manager</h3>
+                  <p className="company">Travelperk</p>
+                  <p>
+                    Accelerated revenue growth by implementing and launching multiple
+                    global clients with SSO and API Integrations.
+                  </p>
+                </div>
+                <div className="experience-dates">Jan 2021 - Oct 2021</div>
               </div>
-              <div className="job-card">
-                <h3>Senior Technical Support Specialist - Travelperk</h3>
-                <span>Jan 2020 - Dec 2020</span>
-                <p>
-                  Enhanced customer experience by resolving complex issues & optimizing
-                  support workflows.
-                </p>
+              <div className="experience-card">
+                <div className="experience-info">
+                  <h3>Senior Technical Support Specialist</h3>
+                  <p className="company">Travelperk</p>
+                  <p>
+                    Enhanced customer experience by resolving complex issues &
+                    optimizing support workflows.
+                  </p>
+                </div>
+                <div className="experience-dates">Jan 2020 - Dec 2020</div>
               </div>
             </div>
           </section>
@@ -191,30 +202,37 @@ function App() {
           <section id="education" className="section-container education">
             <h2>Education</h2>
             <div className="edu-container">
-              <div className="edu-card">
-                <h3>Product Management Bootcamp</h3>
-                <span>CodeOp | 2023 - 2023</span>
-                <p>
-                  Focus on end-to-end product lifecycle, user-centric design, and
-                  go-to-market strategies.
-                </p>
+              <div className="education-card">
+                <div className="education-info">
+                  <h3>Product Management Bootcamp</h3>
+                  <p className="company">CodeOp</p>
+                  <p>
+                    Focus on end-to-end product lifecycle, user-centric design,
+                    and go-to-market strategies.
+                  </p>
+                </div>
+                <div className="education-dates">2023</div>
               </div>
-              <div className="edu-card">
-                <h3>Web Development</h3>
-                <span>The App Brewery | 2021-2022</span>
-                <p>
-                  Hands-on coding projects in HTML, CSS, JavaScript, and basic React.
-                </p>
+              <div className="education-card">
+                <div className="education-info">
+                  <h3>Web Development</h3>
+                  <p className="company">The App Brewery</p>
+                  <p>
+                    Hands-on coding projects in HTML, CSS, JavaScript, and React.
+                  </p>
+                </div>
+                <div className="education-dates">2021-2022</div>
               </div>
-              <div className="edu-card">
-                <h3>Business Administration</h3>
-                <span>KV Business School Lucerne | 2007-2010</span>
-                <p>
-                  Core principles in management, finance, marketing, and strategy.
-                  Develop leadership, critical thinking, and communication skills to
-                  analyze market trends, manage teams, and drive innovation in
-                  dynamic business environments.
-                </p>
+              <div className="education-card">
+                <div className="education-info">
+                  <h3>Business Administration</h3>
+                  <p className="company">KV Business School Lucerne</p>
+                  <p>
+                    Core principles in management, finance, marketing, and strategy.
+                    Develop leadership, critical thinking, and communication skills.
+                  </p>
+                </div>
+                <div className="education-dates">2007-2010</div>
               </div>
             </div>
           </section>
@@ -232,8 +250,8 @@ function App() {
               <li>Agile</li>
               <li>AB Test</li>
               <li>API Integrations</li>
+              <li>QA Testing</li>
               <li>AI, ML, LLM's</li>
-              <li>Basic HTML, CSS, JS, React, SQL, Python</li>
             </ul>
           </section>
 
@@ -245,50 +263,118 @@ function App() {
               <li>Asana</li>
               <li>Looker</li>
               <li>Mixpanel</li>
+              <li>Salesforce</li>
+              <li>Intercom</li>
+              <li>Zendesk</li>
+              <li>ClickUp</li>
             </ul>
           </section>
         </div>
 
-        {/* Row 3: Projects (single box) */}
+        {/* Row 3: Projects (4 Cards) */}
         <section id="projects" className="section-container projects">
-          <h2>Latest Projects</h2>
+          <h2>Projects</h2>
           <div className="projects-grid">
+            {/* Project 1 */}
             <div className="project-card">
-              <h3>Work in progress</h3>
-              <p>🌸</p>
-              <a href="https://figma.com" target="_blank" rel="noreferrer">
-                View in Figma
+              <img
+                src={previewProject1}
+                alt="Project 1"
+                className="project-image"
+              />
+              <h3 className="project-title">Project Title 1</h3>
+              <p className="project-description">
+                Short description about project 1, focusing on purpose & features.
+              </p>
+              <a
+                href="https://example.com/project1"
+                target="_blank"
+                rel="noreferrer"
+                className="project-link"
+              >
+                View Project
               </a>
             </div>
+
+            {/* Project 2 */}
             <div className="project-card">
-              <h3>Work in progress</h3>
-              <p>🌸</p>
-              <a href="https://github.com" target="_blank" rel="noreferrer">
-                GitHub Repo
+              <img
+                src={previewProject2}
+                alt="Project 2"
+                className="project-image"
+              />
+              <h3 className="project-title">Project Title 2</h3>
+              <p className="project-description">
+                Short description about project 2, focusing on purpose & features.
+              </p>
+              <a
+                href="https://example.com/project2"
+                target="_blank"
+                rel="noreferrer"
+                className="project-link"
+              >
+                View Project
+              </a>
+            </div>
+
+            {/* Project 3 */}
+            <div className="project-card">
+              <img
+                src={previewProject3}
+                alt="Project 3"
+                className="project-image"
+              />
+              <h3 className="project-title">Project Title 3</h3>
+              <p className="project-description">
+                Short description about project 3, focusing on purpose & features.
+              </p>
+              <a
+                href="https://example.com/project3"
+                target="_blank"
+                rel="noreferrer"
+                className="project-link"
+              >
+                View Project
+              </a>
+            </div>
+
+            {/* Project 4 */}
+            <div className="project-card">
+              <img
+                src={previewProject4}
+                alt="Project 4"
+                className="project-image"
+              />
+              <h3 className="project-title">Project Title 4</h3>
+              <p className="project-description">
+                Short description about project 4, focusing on purpose & features.
+              </p>
+              <a
+                href="https://example.com/project4"
+                target="_blank"
+                rel="noreferrer"
+                className="project-link"
+              >
+                View Project
               </a>
             </div>
           </div>
         </section>
       </div>
 
-      {/* Footer / Contact */}
+      {/* Footer */}
       <footer className="footer" id="contact">
-        <div className="contact-details">
-          <p>
-            <a href="mailto:melany.haefliger@gmail.com">
-              melany.haefliger@gmail.com
-            </a>
-          </p>
-          <p>
+        <div className="footer-content">
+          <div className="social-links">
             <a
               href="https://www.linkedin.com/in/melanie-haefliger/"
               target="_blank"
               rel="noreferrer"
             >
               <img src={linkedinIcon} alt="LinkedIn" className="linkedin-icon" />
-              LinkedIn
             </a>
-          </p>
+          </div>
+          <p>© 2025 Mel. All rights reserved.</p>
         </div>
       </footer>
     </div>

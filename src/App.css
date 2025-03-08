@@ -47,7 +47,7 @@ p {
 }
 
 .heart {
-  position: fixed; /* so it tracks the viewport, not the page */
+  position: fixed;
   font-size: 2rem;
   transform: translateX(-50%) translateY(100vh); /* start below screen */
   animation-name: floatUp;
@@ -117,7 +117,7 @@ p {
   flex-direction: column;
   gap: 0.3rem;
   position: absolute;
-  top: 0.5rem; /* adjust vertically as needed */
+  top: 0.5rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -128,29 +128,26 @@ p {
   background-color: #233830;
 }
 
-/* Mobile nav hidden by default */
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 4rem; 
-      left: 50%;  /* center horizontally */
-      transform: translateX(-50%); /* center horizontally */
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 1rem;
-      border-radius: 1rem;
-    }
-  
-    /* Show nav when .open is applied */
-    .nav-links.open {
-      display: flex;
-    }
-  
-    .hamburger {
-      display: flex; /* show hamburger on mobile */
-    }
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1rem;
+    border-radius: 1rem;
   }
+  .nav-links.open {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
 
 .top-menu nav ul li a {
   padding: 0.5rem 3rem;
@@ -172,21 +169,20 @@ p {
 /* Content Wrapper & Two-Column Rows                  */
 /* -------------------------------------------------- */
 .content-wrapper {
-  max-width: 2000px; /* or narrower, e.g. 1400px */
+  max-width: 2000px;
   margin: 0 auto;
-  padding: 0 2cm; /* side padding */
+  padding: 0 2cm;
 }
 
 .two-column-row {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
   margin-bottom: 2rem;
 }
 
-/* Switch to single-column on mobile */
 @media (max-width: 768px) {
   .two-column-row {
     flex-direction: column;
@@ -205,10 +201,9 @@ p {
   padding: 2rem 0;
 }
 
-/* Profile Image & Pulse Animation */
 .profile-image {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
@@ -217,7 +212,6 @@ p {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Optionally also remove focus outlines if desired */
 .profile-image:focus,
 .profile-image:active {
   outline: none;
@@ -225,18 +219,11 @@ p {
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.03);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
 }
 
-/* Hero Titles */
 .profile-name {
   font-size: clamp(2rem, 6vw, 10rem);
   font-weight: 700;
@@ -254,7 +241,12 @@ p {
   color: #e5a152;
 }
 
-/* Profile Image Wrapper & Hint Bubble */
+.profile-title-container {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem;
+}
+
 .profile-image-wrapper {
   position: relative;
   display: inline-block;
@@ -276,18 +268,9 @@ p {
 }
 
 @keyframes bubblePulse {
-  0% {
-    transform: translateX(-50%) scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: translateX(-50%) scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%) scale(1);
-    opacity: 0.9;
-  }
+  0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+  50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
 }
 
 /* -------------------------------------------------- */
@@ -296,7 +279,7 @@ p {
 .section-container {
   background-color: #fff;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 3rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 }
@@ -304,11 +287,13 @@ p {
 .section-container h2 {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   color: #2c3e50;
 }
 
-/* Experience & Education Cards */
+/* -------------------------------------------------- */
+/* Experience & Education Cards                       */
+/* -------------------------------------------------- */
 .jobs-container,
 .edu-container {
   max-width: 800px;
@@ -316,36 +301,50 @@ p {
   text-align: left;
 }
 
-.job-card,
-.edu-card {
-  background-color: #fff;
+.experience-card,
+.education-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f8f7f5;
   border-radius: 0.5rem;
   padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: none;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.experience-card:hover,
+.education-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.job-card h3,
-.edu-card h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.8rem;
+.experience-info,
+.education-info {
+  max-width: 75%;
 }
-
-.job-card span,
-.edu-card span {
-  display: block;
-  margin-bottom: 0.5rem;
+.experience-info h3,
+.education-info h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+}
+.company {
   color: #666;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+.experience-dates,
+.education-dates {
+  color: #666;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  white-space: nowrap;
 }
 
-.job-card p,
-.edu-card p {
-  margin: 0;
-  font-size: 1rem;
-}
-
-/* Skills, Tools, & Projects */
+/* -------------------------------------------------- */
+/* Skills, Tools, & Projects                          */
+/* -------------------------------------------------- */
 .skills-list,
 .tools-list {
   display: flex;
@@ -357,42 +356,64 @@ p {
 
 .skills-list li,
 .tools-list li {
-  background-color: #F8F7F5;
+  background-color: #f8f7f5;
   padding: 0.4rem 0.7rem;
   border-radius: 0.3rem;
   font-size: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.skills-list li:hover,
+.tools-list li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 3rem;
 }
 
 .project-card {
-  background-color: #F8F7F5;
-  padding: 1rem;
+  background-color: #f8f7f5;
+  padding: 3rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
   font-size: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.project-card h3 {
+/* Project Card Elements */
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.project-title {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-.project-card p {
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+.project-description {
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  color: #333;
 }
 
-.project-card a {
-  text-decoration: none;
+.project-link {
   color: #2b6cb0;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
 }
-
-.project-card a:hover {
+.project-link:hover {
   text-decoration: underline;
 }
 
@@ -403,27 +424,53 @@ p {
   padding: 6rem 0;
   border-top: 1px solid #ddd;
   text-align: center;
-  color: #f6a846;
-}
-
-.footer a {
   color: #233830;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
-.footer a:hover {
-  color: #fff;
+.footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2cm;
 }
 
-.footer .contact-details p {
+.footer .footer-content p {
   margin: 0.5rem 0;
+}
+
+.footer .social-links {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.footer .social-links a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.footer .social-links a:hover {
+  transform: scale(1.1);
 }
 
 .linkedin-icon {
   width: 40px;
   height: 40px;
   vertical-align: middle;
-  margin-right: 0.5rem;
+}
+
+/* -------------------------------------------------- */
+/* Responsive Adjustments                             */
+/* -------------------------------------------------- */
+@media (max-width: 768px) {
+  .two-column-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .content-wrapper {
+    padding: 0 1rem;
+  }
+  .project-image {
+    /* optional smaller images on mobile, if you want */
+  }
 }
