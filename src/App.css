@@ -169,7 +169,7 @@ p {
 /* Content Wrapper & Two-Column Rows                  */
 /* -------------------------------------------------- */
 .content-wrapper {
-  max-width: 1800px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -459,9 +459,6 @@ p {
   }
   .content-wrapper {
     padding: 0 1rem !important;
-  }
-  .project-image {
-    /* optional smaller images on mobile, if you want */
   }
   .projects-grid {
     grid-template-columns: 1fr !important; /* Single column */
