@@ -87,6 +87,12 @@ function App() {
 
           {/* Nav links */}
           <ul className={menuOpen ? "nav-links open" : "nav-links"}>
+            {/* Close button at the top */}
+  <li className="close-menu-item">
+    <button className="close-menu-btn" onClick={() => setMenuOpen(false)}>
+      &times; {/* This is the "×" character */}
+    </button>
+  </li>
             <li>
               <a href="#experience" onClick={() => setMenuOpen(false)}>
                 Experience
@@ -149,90 +155,112 @@ function App() {
 
         {/* Row 1: Experience & Education */}
         <div className="two-column-row">
+          {/* Experience */}
           <section id="experience" className="section-container experience">
             <h2>Experience</h2>
             <div className="jobs-container">
+              {/* Example Card */}
               <div className="experience-card">
-                <div className="experience-info">
-                  <h3>Associate PM</h3>
-                  <p className="company">Benevity</p>
-                  <p>
-                    Delivering features for internal teams and users that optimize
-                    workflows and drive user engagement.
-                  </p>
+                {/* Top row: Title/Company + Date */}
+                <div className="experience-top">
+                  <div className="experience-left">
+                    <h3>Associate PM</h3>
+                    <p className="company">Benevity</p>
+                  </div>
+                  <div className="experience-dates">Oct 2022 - Present</div>
                 </div>
-                <div className="experience-dates">Oct 2022 - Present</div>
+                {/* Full-width paragraph below */}
+                <p className="experience-description">
+                  Delivering features for internal teams and users that optimize
+                  workflows and drive user engagement.
+                </p>
               </div>
+
               <div className="experience-card">
-                <div className="experience-info">
-                  <h3>Customer Success Manager</h3>
-                  <p className="company">Benevity</p>
-                  <p>
-                    Built strong client relationships to drive product adoption,
-                    ensuring retention and exceptional customer experiences.
-                  </p>
+                <div className="experience-top">
+                  <div className="experience-left">
+                    <h3>Customer Success Manager</h3>
+                    <p className="company">Benevity</p>
+                  </div>
+                  <div className="experience-dates">Oct 2021 - Oct 2022</div>
                 </div>
-                <div className="experience-dates">Oct 2021 - Oct 2022</div>
+                <p className="experience-description">
+                  Built strong client relationships to drive product adoption,
+                  ensuring retention and exceptional customer experiences.
+                </p>
               </div>
+
               <div className="experience-card">
-                <div className="experience-info">
-                  <h3>Implementation Manager</h3>
-                  <p className="company">Travelperk</p>
-                  <p>
-                    Accelerated revenue growth by implementing and launching multiple
-                    global clients with SSO and API Integrations.
-                  </p>
+                <div className="experience-top">
+                  <div className="experience-left">
+                    <h3>Implementation Manager</h3>
+                    <p className="company">Travelperk</p>
+                  </div>
+                  <div className="experience-dates">Jan 2021 - Oct 2021</div>
                 </div>
-                <div className="experience-dates">Jan 2021 - Oct 2021</div>
+                <p className="experience-description">
+                  Accelerated revenue growth by implementing and launching multiple
+                  global clients with SSO and API Integrations.
+                </p>
               </div>
+
               <div className="experience-card">
-                <div className="experience-info">
-                  <h3>Senior Technical Support Specialist</h3>
-                  <p className="company">Travelperk</p>
-                  <p>
-                    Enhanced customer experience by resolving complex issues &
-                    optimizing support workflows.
-                  </p>
+                <div className="experience-top">
+                  <div className="experience-left">
+                    <h3>Senior Technical Support Specialist</h3>
+                    <p className="company">Travelperk</p>
+                  </div>
+                  <div className="experience-dates">Jan 2020 - Dec 2020</div>
                 </div>
-                <div className="experience-dates">Jan 2020 - Dec 2020</div>
+                <p className="experience-description">
+                  Enhanced customer experience by resolving complex issues & optimizing
+                  support workflows.
+                </p>
               </div>
             </div>
           </section>
 
+          {/* Education */}
           <section id="education" className="section-container education">
             <h2>Education</h2>
             <div className="edu-container">
               <div className="education-card">
-                <div className="education-info">
-                  <h3>Product Management Bootcamp</h3>
-                  <p className="company">CodeOp</p>
-                  <p>
-                    Focus on end-to-end product lifecycle, user-centric design,
-                    and go-to-market strategies.
-                  </p>
+                <div className="education-top">
+                  <div className="education-left">
+                    <h3>Product Management Bootcamp</h3>
+                    <p className="company">CodeOp</p>
+                  </div>
+                  <div className="education-dates">2023</div>
                 </div>
-                <div className="education-dates">2023</div>
+                <p className="education-description">
+                  Focus on end-to-end product lifecycle, user-centric design,
+                  and go-to-market strategies.
+                </p>
               </div>
               <div className="education-card">
-                <div className="education-info">
-                  <h3>Web Development</h3>
-                  <p className="company">The App Brewery</p>
-                  <p>
-                    Hands-on coding projects in HTML, CSS, JavaScript, and React.
-                  </p>
+                <div className="education-top">
+                  <div className="education-left">
+                    <h3>Web Development</h3>
+                    <p className="company">The App Brewery</p>
+                  </div>
+                  <div className="education-dates">2021-2022</div>
                 </div>
-                <div className="education-dates">2021-2022</div>
+                <p className="education-description">
+                  Hands-on coding projects in HTML, CSS, JavaScript, and React.
+                </p>
               </div>
               <div className="education-card">
-                <div className="education-info">
-                  <h3>Business Administration</h3>
-                  <p className="company">KV Business School Lucerne</p>
-                  <p>
-                    Core principles in management, finance, marketing, and strategy.
-                    Develop leadership, critical thinking, and communication skills.
-                  </p>
+                <div className="education-top">
+                  <div className="education-left">
+                    <h3>Business Administration</h3>
+                    <p className="company">KV Business School Lucerne</p>
+                  </div>
+                  <div className="education-dates">2007-2010</div>
                 </div>
-                <div className="education-dates">2007-2010</div>
+                <p className="education-description">
+                  Core principles in management, finance, marketing, and strategy.
+                  Develop leadership, critical thinking, and communication skills.
+                </p>
               </div>
             </div>
           </section>
