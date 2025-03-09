@@ -565,4 +565,15 @@ p {
     .education-description {
       text-align: left !important;
     }
+    .experience-top,
+  .education-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-dates,
+  .education-dates {
+    margin-top: 0.5rem; /* adds a little spacing above the date */
+    margin-left: 0;     /* remove the left margin */
+  }
   }
