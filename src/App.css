@@ -329,7 +329,7 @@ p {
 
 .section-container h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 3rem;
   color: #2c3e50;
 }
@@ -390,6 +390,7 @@ p {
   font-size: 1.3rem;
   margin-top: 0.3rem;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 /* Similarly for Education */
@@ -402,6 +403,7 @@ p {
   font-size: 1.3rem;
   margin-top: 0.3rem;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 /* Dates on the right side, top row */
@@ -468,7 +470,7 @@ p {
 }
 
 .project-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
