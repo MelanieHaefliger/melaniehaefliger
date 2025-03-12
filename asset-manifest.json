@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/melaniehaefliger/static/css/main.080a17c9.css",
+    "main.css": "/melaniehaefliger/static/css/main.0de80d5a.css",
     "main.js": "/melaniehaefliger/static/js/main.575183ac.js",
     "static/js/453.3eaa4864.chunk.js": "/melaniehaefliger/static/js/453.3eaa4864.chunk.js",
     "static/media/profile.png": "/melaniehaefliger/static/media/profile.f51c235631c661029951.png",
@@ -9,12 +9,12 @@
     "static/media/preview-project3.png": "/melaniehaefliger/static/media/preview-project3.189a496967f42a1368fa.png",
     "static/media/preview-project4.png": "/melaniehaefliger/static/media/preview-project4.189a496967f42a1368fa.png",
     "index.html": "/melaniehaefliger/index.html",
-    "main.080a17c9.css.map": "/melaniehaefliger/static/css/main.080a17c9.css.map",
+    "main.0de80d5a.css.map": "/melaniehaefliger/static/css/main.0de80d5a.css.map",
     "main.575183ac.js.map": "/melaniehaefliger/static/js/main.575183ac.js.map",
     "453.3eaa4864.chunk.js.map": "/melaniehaefliger/static/js/453.3eaa4864.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.080a17c9.css",
+    "static/css/main.0de80d5a.css",
     "static/js/main.575183ac.js"
   ]
 }
