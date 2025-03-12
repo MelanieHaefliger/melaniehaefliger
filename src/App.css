@@ -387,7 +387,7 @@ p {
 }
 .experience-left .company {
   color: #666;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   margin-top: 0.3rem;
   margin-bottom: 0.5rem;
 }
@@ -399,7 +399,7 @@ p {
 }
 .education-left .company {
   color: #666;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   margin-top: 0.3rem;
   margin-bottom: 0.5rem;
 }
@@ -576,4 +576,22 @@ p {
     margin-top: 0.5rem; /* adds a little spacing above the date */
     margin-left: 0;     /* remove the left margin */
   }
+
+  .desktop-break {
+    display: none;
+  }
+
+   /* Double the font size of the menu links */
+   .nav-links li a {
+    font-size: 3rem !important;
+  }
+
+  /* Double the font size for profile name and title */
+  .profile-name {
+    font-size: 4rem !important;
+  }
+  .profile-title {
+    font-size: 4rem !important;
+  }
+
   }
