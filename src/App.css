@@ -205,6 +205,9 @@ p {
   .hamburger {
     display: flex;
   }
+  .close-menu-item {
+    display: block;
+  }
 }
 
 /* Slide in from the top */
@@ -583,17 +586,16 @@ p {
     display: none;
   }
 
-   /* Double the font size of the menu links */
    .nav-links li a {
-    font-size: 3rem !important;
+    font-size: 1.2rem !important;
   }
 
-  /* Double the font size for profile name and title */
   .profile-name {
-    font-size: 4rem !important;
+    font-size: 2rem !important;
   }
+
   .profile-title {
-    font-size: 4rem !important;
+    font-size: 1.8rem !important;
   }
 
   }
