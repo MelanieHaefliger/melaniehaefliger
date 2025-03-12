@@ -148,7 +148,7 @@ function App() {
           <h1 className="profile-name">Hi. I'm Mel.</h1>
           <div className="profile-title-container">
             <h2 className="profile-title">
-              Great products win hearts and fill wallets, let’s make that magic happen!
+              Great products win hearts and fill wallets, <br /> let’s make that magic happen!
             </h2>
           </div>
         </section>
