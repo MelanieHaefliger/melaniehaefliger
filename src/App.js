@@ -5,7 +5,6 @@ import linkedinIcon from "./linkedin-icon.png";
 
 /* Import your project screenshots */
 import previewProject1 from "./preview-project1.png";
-import previewProject2 from "./preview-project2.png";
 import previewProject3 from "./preview-project3.png";
 import previewProject4 from "./preview-project4.png";
 
@@ -303,47 +302,45 @@ function App() {
         <section id="projects" className="section-container projects">
           <h2>Projects</h2>
           <div className="projects-grid">
-            {/* Project 1 */}
+            {/* Project Card 1: Coming Soon Placeholder */}
             <div className="project-card">
-              <img
-                src={previewProject1}
-                alt="Project 1"
-                className="project-image"
-              />
-              <h3 className="project-title">Project Title 1</h3>
-              <p className="project-description">
-                Short description about project 1, focusing on purpose & features.
-              </p>
-              <a
-                href="https://example.com/project1"
-                target="_blank"
-                rel="noreferrer"
-                className="project-link"
-              >
-                View Project
-              </a>
-            </div>
+  <img
+    src={previewProject1}
+    alt="Coming Soon: CheerTask"
+    className="project-image"
+  />
+  <h3 className="project-title">Coming Soon: CheerTask</h3>
+  <p className="project-description">
+    CheerTask is an upcoming task management app that leverages AI-powered prioritization and calendar syncing to help manage work, personal, and family tasks seamlessly.
+  </p>
+  <button className="project-link" onClick={() => { /* No action for now, or you can add a notification */ }}>
+    Learn More
+  </button>
+</div>
 
-            {/* Project 2 */}
-            <div className="project-card">
-              <img
-                src={previewProject2}
-                alt="Project 2"
-                className="project-image"
-              />
-              <h3 className="project-title">Project Title 2</h3>
-              <p className="project-description">
-                Short description about project 2, focusing on purpose & features.
-              </p>
-              <a
-                href="https://example.com/project2"
-                target="_blank"
-                rel="noreferrer"
-                className="project-link"
-              >
-                View Project
-              </a>
-            </div>
+              {/* Project Card 2: Case Study Embed */}
+    <div className="project-card">
+      <div className="iframe-container">
+        <iframe
+          src="https://pitch.com/embed-link/evwtdh"
+          allow="fullscreen; clipboard-write"
+          allowFullScreen
+          title="Case Study: Metadata eSIM Inventory Fix"
+        ></iframe>
+      </div>
+      <h3 className="project-title">Case Study: Metadata eSIM Inventory Fix</h3>
+      <p className="project-description">
+        An anonymized case study outlining the strategy and implementation that significantly reduced metadata allocation errors and improved operational efficiency for a telecom startup.
+      </p>
+      <a
+        href="https://pitch.com/v/metadata-esim-inventory-fix---telecom-startup-evwtdh"
+        target="_blank"
+        rel="noreferrer"
+        className="project-link"
+      >
+        View Full Case Study
+      </a>
+    </div>
 
             {/* Project 3 */}
             <div className="project-card">
